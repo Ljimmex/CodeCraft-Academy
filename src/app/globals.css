@@ -1,0 +1,78 @@
+@import "tailwindcss";
+
+@plugin "tailwindcss-animate";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans), Arial, Helvetica, sans-serif;
+}
+
+/* Custom Scrollbar for Instructions Panel */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 6px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: rgba(30, 41, 59, 0.5);
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: rgba(71, 85, 105, 0.8);
+  border-radius: 3px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: rgba(100, 116, 139, 1);
+}
+
+/* Stack Auth Overrides */
+.stack-auth-wrapper input {
+  background-color: #ffffff !important;
+  border: 1px solid #e2e8f0 !important;
+  color: #0f172a !important;
+  border-radius: 0.5rem !important;
+  padding: 0.75rem 1rem !important;
+}
+
+.stack-auth-wrapper input:focus {
+  border-color: #2563eb !important;
+  outline: 2px solid #2563eb !important;
+  outline-offset: 1px !important;
+}
+
+.stack-auth-wrapper button[type="submit"],
+.stack-auth-wrapper button[data-variant="primary"] {
+  background-color: #2563eb !important;
+  color: #ffffff !important;
+  border-radius: 0.5rem !important;
+  padding: 0.75rem 1.5rem !important;
+  font-weight: 600 !important;
+  transition: all 0.2s !important;
+}
+
+.stack-auth-wrapper button[type="submit"]:hover,
+.stack-auth-wrapper button[data-variant="primary"]:hover {
+  background-color: #1d4ed8 !important;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 6px -1px rgba(37, 99, 235, 0.2);
+}
