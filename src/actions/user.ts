@@ -26,6 +26,8 @@ export async function updateUserProfile(data: {
     coding_goal: string;
     preferred_language: string;
     avatar_slug?: string;
+    language?: string;
+    theme?: string;
 }) {
     const user = await stackServerApp.getUser();
     if (!user) throw new Error("User not authenticated");
@@ -34,9 +36,9 @@ export async function updateUserProfile(data: {
     try {
         await client.query(
             `UPDATE users 
-             SET username = $1, bio = $2, coding_goal = $3, preferred_language = $4, avatar_slug = $5
-             WHERE auth_id = $6`,
-            [data.username, data.bio, data.coding_goal, data.preferred_language, data.avatar_slug, user.id]
+             SET username = $1, bio = $2, coding_goal = $3, preferred_language = $4, avatar_slug = $5, language = COALESCE($6, language), theme = COALESCE($7, theme)
+             WHERE auth_id = $8`,
+            [data.username, data.bio, data.coding_goal, data.preferred_language, data.avatar_slug, data.language, data.theme, user.id]
         );
         revalidatePath("/");
         revalidatePath("/profile");

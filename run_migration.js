@@ -29,7 +29,7 @@ const pool = new Pool({
 async function runMigration() {
     const client = await pool.connect();
     try {
-        const sql = fs.readFileSync(path.join(__dirname, 'migrations', '05_add_avatar_slug.sql'), 'utf8');
+        const sql = fs.readFileSync(path.join(__dirname, 'migrations', '06_add_settings_fields.sql'), 'utf8');
         await client.query(sql);
         console.log('Migration executed successfully');
     } catch (err) {

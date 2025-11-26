@@ -56,8 +56,8 @@ export default function OnboardingModal() {
                 username: formData.username,
                 avatar_slug: formData.avatar_slug,
             });
-            // Force a hard refresh to update server components
-            window.location.reload();
+            // Refresh to update server components
+            router.refresh();
         } catch (error) {
             console.error("Failed to save onboarding:", error);
             setIsLoading(false);
@@ -92,8 +92,8 @@ export default function OnboardingModal() {
                                         key={goal.id}
                                         onClick={() => setFormData({ ...formData, coding_goal: goal.id })}
                                         className={`p-4 rounded-xl border-2 text-left transition-all ${formData.coding_goal === goal.id
-                                                ? "border-blue-600 bg-blue-50 ring-2 ring-blue-100"
-                                                : "border-slate-200 hover:border-blue-300 hover:bg-slate-50"
+                                            ? "border-blue-600 bg-blue-50 ring-2 ring-blue-100"
+                                            : "border-slate-200 hover:border-blue-300 hover:bg-slate-50"
                                             }`}
                                     >
                                         <div className="text-2xl mb-2">{goal.icon}</div>
@@ -118,8 +118,8 @@ export default function OnboardingModal() {
                                         key={lang.id}
                                         onClick={() => setFormData({ ...formData, preferred_language: lang.id })}
                                         className={`p-4 rounded-xl border-2 text-left transition-all ${formData.preferred_language === lang.id
-                                                ? "border-blue-600 bg-blue-50 ring-2 ring-blue-100"
-                                                : "border-slate-200 hover:border-blue-300 hover:bg-slate-50"
+                                            ? "border-blue-600 bg-blue-50 ring-2 ring-blue-100"
+                                            : "border-slate-200 hover:border-blue-300 hover:bg-slate-50"
                                             }`}
                                     >
                                         <div className="text-2xl mb-2">{lang.icon}</div>
@@ -144,8 +144,8 @@ export default function OnboardingModal() {
                                         key={avatar.id}
                                         onClick={() => setFormData({ ...formData, avatar_slug: avatar.id })}
                                         className={`p-3 rounded-xl border-2 text-center transition-all flex flex-col items-center gap-2 ${formData.avatar_slug === avatar.id
-                                                ? "border-blue-600 bg-blue-50 ring-2 ring-blue-100"
-                                                : "border-slate-200 hover:border-blue-300 hover:bg-slate-50"
+                                            ? "border-blue-600 bg-blue-50 ring-2 ring-blue-100"
+                                            : "border-slate-200 hover:border-blue-300 hover:bg-slate-50"
                                             }`}
                                     >
                                         <img src={avatar.img} alt={avatar.label} className="w-16 h-16 object-contain" />
