@@ -21,10 +21,10 @@ export async function getCurrentUser() {
 }
 
 export async function updateUserProfile(data: {
-    username: string;
-    bio: string;
-    coding_goal: string;
-    preferred_language: string;
+    username?: string;
+    bio?: string;
+    coding_goal?: string;
+    preferred_language?: string;
     avatar_slug?: string;
     language?: string;
     theme?: string;
@@ -36,7 +36,14 @@ export async function updateUserProfile(data: {
     try {
         await client.query(
             `UPDATE users 
-             SET username = $1, bio = $2, coding_goal = $3, preferred_language = $4, avatar_slug = $5, language = COALESCE($6, language), theme = COALESCE($7, theme)
+             SET 
+                username = COALESCE($1, username), 
+                bio = COALESCE($2, bio), 
+                coding_goal = COALESCE($3, coding_goal), 
+                preferred_language = COALESCE($4, preferred_language), 
+                avatar_slug = COALESCE($5, avatar_slug), 
+                language = COALESCE($6, language), 
+                theme = COALESCE($7, theme)
              WHERE auth_id = $8`,
             [data.username, data.bio, data.coding_goal, data.preferred_language, data.avatar_slug, data.language, data.theme, user.id]
         );

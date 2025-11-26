@@ -1,12 +1,26 @@
 export type Dictionary = {
     navbar: {
-        dashboard: string;
-        learn: string;
+        courses: string;
         challenges: string;
         community: string;
         profile: string;
         settings: string;
         signOut: string;
+    };
+    courses: {
+        title: string;
+        filterTitle: string;
+        language: string;
+        level: string;
+        topic: string;
+        modules: string;
+        beginner: string;
+        intermediate: string;
+        advanced: string;
+        web: string;
+        dataScience: string;
+        mobile: string;
+        systems: string;
     };
     settings: {
         title: string;
@@ -42,13 +56,27 @@ export type Dictionary = {
 export const dictionaries: Record<string, Dictionary> = {
     en: {
         navbar: {
-            dashboard: "Dashboard",
-            learn: "Learn",
+            courses: "Courses",
             challenges: "Challenges",
             community: "Community",
             profile: "Profile",
             settings: "Account Settings",
             signOut: "Sign Out",
+        },
+        courses: {
+            title: "Course Catalog",
+            filterTitle: "Filters",
+            language: "Language",
+            level: "Level",
+            topic: "Topic",
+            modules: "Modules",
+            beginner: "Beginner",
+            intermediate: "Intermediate",
+            advanced: "Advanced",
+            web: "Web Development",
+            dataScience: "Data Science",
+            mobile: "Mobile Development",
+            systems: "Systems Programming",
         },
         settings: {
             title: "Account Settings",
@@ -82,13 +110,27 @@ export const dictionaries: Record<string, Dictionary> = {
     },
     pl: {
         navbar: {
-            dashboard: "Panel",
-            learn: "Nauka",
+            courses: "Kursy",
             challenges: "Wyzwania",
             community: "Społeczność",
             profile: "Profil",
             settings: "Ustawienia konta",
             signOut: "Wyloguj się",
+        },
+        courses: {
+            title: "Katalog Kursów",
+            filterTitle: "Filtry",
+            language: "Język",
+            level: "Poziom",
+            topic: "Temat",
+            modules: "Modułów",
+            beginner: "Początkujący",
+            intermediate: "Średniozaawansowany",
+            advanced: "Zaawansowany",
+            web: "Tworzenie Stron WWW",
+            dataScience: "Data Science",
+            mobile: "Aplikacje Mobilne",
+            systems: "Programowanie Systemowe",
         },
         settings: {
             title: "Ustawienia konta",

@@ -80,6 +80,18 @@ export default function SettingsPage() {
         }
     };
 
+    const handleLanguageChange = async (newLang: string) => {
+        setLanguage(newLang);
+        await updateUserProfile({ language: newLang });
+        router.refresh();
+    };
+
+    const handleThemeChange = async (newTheme: string) => {
+        setTheme(newTheme);
+        await updateUserProfile({ theme: newTheme });
+        router.refresh();
+    };
+
     if (!user) return null;
 
     return (
@@ -199,6 +211,38 @@ export default function SettingsPage() {
                             </div>
                         </div>
 
+                        {/* Appearance Section Moved Inside Form */}
+                        <div className="pt-6 border-t border-slate-100 dark:border-slate-700">
+                            <h2 className="text-xl font-bold text-slate-900 dark:text-white mb-2">{t.settings.appearance}</h2>
+                            <p className="text-slate-500 dark:text-slate-400 mb-6">{t.settings.appearanceDesc}</p>
+
+                            <div className="grid md:grid-cols-2 gap-6">
+                                <div>
+                                    <label className="block text-sm font-bold text-slate-700 dark:text-slate-300 mb-2">{t.settings.language}</label>
+                                    <select
+                                        value={language}
+                                        onChange={(e) => handleLanguageChange(e.target.value)}
+                                        className="w-full px-4 py-2 rounded-lg border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-700 text-slate-900 dark:text-white focus:border-blue-500 focus:ring-2 focus:ring-blue-200 dark:focus:ring-blue-900 outline-none transition-all"
+                                    >
+                                        <option value="en">English</option>
+                                        <option value="pl">Polski</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <label className="block text-sm font-bold text-slate-700 dark:text-slate-300 mb-2">{t.settings.theme}</label>
+                                    <select
+                                        value={theme}
+                                        onChange={(e) => handleThemeChange(e.target.value)}
+                                        className="w-full px-4 py-2 rounded-lg border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-700 text-slate-900 dark:text-white focus:border-blue-500 focus:ring-2 focus:ring-blue-200 dark:focus:ring-blue-900 outline-none transition-all"
+                                    >
+                                        <option value="light">Light</option>
+                                        <option value="dark">Dark</option>
+                                        <option value="system">System</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
                         {message && (
                             <div className={`p-4 rounded-lg text-sm font-medium ${message.type === 'success' ? 'bg-emerald-50 dark:bg-emerald-900/20 text-emerald-700 dark:text-emerald-400' : 'bg-red-50 dark:bg-red-900/20 text-red-700 dark:text-red-400'}`}>
                                 {message.text}
@@ -215,41 +259,6 @@ export default function SettingsPage() {
                             </button>
                         </div>
                     </form>
-                </div>
-
-                {/* Appearance Section */}
-                <div className="bg-white dark:bg-slate-800 rounded-2xl shadow-sm border border-slate-100 dark:border-slate-700 overflow-hidden">
-                    <div className="p-8 border-b border-slate-100 dark:border-slate-700">
-                        <h2 className="text-xl font-bold text-slate-900 dark:text-white mb-2">{t.settings.appearance}</h2>
-                        <p className="text-slate-500 dark:text-slate-400">{t.settings.appearanceDesc}</p>
-                    </div>
-                    <div className="p-8 space-y-6">
-                        <div className="grid md:grid-cols-2 gap-6">
-                            <div>
-                                <label className="block text-sm font-bold text-slate-700 dark:text-slate-300 mb-2">{t.settings.language}</label>
-                                <select
-                                    value={language}
-                                    onChange={(e) => setLanguage(e.target.value)}
-                                    className="w-full px-4 py-2 rounded-lg border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-700 text-slate-900 dark:text-white focus:border-blue-500 focus:ring-2 focus:ring-blue-200 dark:focus:ring-blue-900 outline-none transition-all"
-                                >
-                                    <option value="en">English</option>
-                                    <option value="pl">Polski</option>
-                                </select>
-                            </div>
-                            <div>
-                                <label className="block text-sm font-bold text-slate-700 dark:text-slate-300 mb-2">{t.settings.theme}</label>
-                                <select
-                                    value={theme}
-                                    onChange={(e) => setTheme(e.target.value)}
-                                    className="w-full px-4 py-2 rounded-lg border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-700 text-slate-900 dark:text-white focus:border-blue-500 focus:ring-2 focus:ring-blue-200 dark:focus:ring-blue-900 outline-none transition-all"
-                                >
-                                    <option value="light">Light</option>
-                                    <option value="dark">Dark</option>
-                                    <option value="system">System</option>
-                                </select>
-                            </div>
-                        </div>
-                    </div>
                 </div>
             </main>
         </div>

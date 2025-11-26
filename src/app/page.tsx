@@ -84,7 +84,7 @@ print(sum(3, 5))`);
   };
 
   return (
-    <div className="min-h-screen font-sans text-slate-900 selection:bg-blue-100">
+    <div className="min-h-screen font-sans text-slate-900 selection:bg-blue-100 dark:bg-slate-900 dark:text-slate-100 transition-colors duration-300">
       {/* Header */}
       <Navbar className="absolute top-0" />
 
@@ -301,9 +301,9 @@ print(sum(3, 5))`);
         </section>
 
         {/* Key Benefits */}
-        <section className="py-24 bg-white">
+        <section className="py-24 bg-white dark:bg-slate-900 transition-colors duration-300">
           <div className="max-w-7xl mx-auto px-6">
-            <h2 className="text-4xl font-extrabold text-center mb-20 text-slate-900 tracking-tight">Key Benefits</h2>
+            <h2 className="text-4xl font-extrabold text-center mb-20 text-slate-900 dark:text-white tracking-tight">Key Benefits</h2>
             <div className="grid md:grid-cols-4 gap-12 text-center">
               {[
                 {
@@ -347,8 +347,8 @@ print(sum(3, 5))`);
                   <div className="mb-6 text-[#0f172a] transform transition-transform duration-300 group-hover:scale-110 group-hover:text-blue-600">
                     {item.icon}
                   </div>
-                  <h3 className="text-xl font-bold mb-3 text-slate-900">{item.title}</h3>
-                  <p className="text-slate-600 text-base leading-relaxed max-w-xs">{item.desc}</p>
+                  <h3 className="text-xl font-bold mb-3 text-slate-900 dark:text-white">{item.title}</h3>
+                  <p className="text-slate-600 dark:text-slate-400 text-base leading-relaxed max-w-xs">{item.desc}</p>
                 </div>
               ))}
             </div>
@@ -356,13 +356,13 @@ print(sum(3, 5))`);
         </section>
 
         {/* Social Proof & Footer Area */}
-        <section className="py-20 bg-slate-50 border-t border-slate-200">
+        <section className="py-20 bg-slate-50 dark:bg-slate-950 border-t border-slate-200 dark:border-slate-800 transition-colors duration-300">
           <div className="max-w-7xl mx-auto px-6">
             <div className="flex flex-col lg:flex-row gap-16 lg:gap-24">
 
               {/* Left Side: Testimonials */}
               <div className="flex-1">
-                <h2 className="text-2xl font-bold text-slate-900 mb-10">Social Proof</h2>
+                <h2 className="text-2xl font-bold text-slate-900 dark:text-white mb-10">Social Proof</h2>
                 <div className="space-y-8">
                   {[
                     {
@@ -381,9 +381,9 @@ print(sum(3, 5))`);
                         {person.name[0]}
                       </div>
                       <div>
-                        <p className="text-slate-700 italic mb-2 leading-relaxed text-sm md:text-base">"{person.text}"</p>
-                        <div className="font-bold text-slate-900 text-sm">
-                          {person.name}, <span className="text-slate-500 font-medium">{person.role}</span>
+                        <p className="text-slate-700 dark:text-slate-300 italic mb-2 leading-relaxed text-sm md:text-base">"{person.text}"</p>
+                        <div className="font-bold text-slate-900 dark:text-white text-sm">
+                          {person.name}, <span className="text-slate-500 dark:text-slate-400 font-medium">{person.role}</span>
                         </div>
                       </div>
                     </div>
@@ -394,22 +394,22 @@ print(sum(3, 5))`);
               {/* Right Side: Stats & Languages */}
               <div className="flex-1">
                 {/* Stats Box */}
-                <div className="bg-white p-8 rounded-2xl shadow-sm border border-slate-100 flex flex-wrap justify-between text-center mb-12">
+                <div className="bg-white dark:bg-slate-800 p-8 rounded-2xl shadow-sm border border-slate-100 dark:border-slate-700 flex flex-wrap justify-between text-center mb-12 transition-colors duration-300">
                   {[
                     { val: "10,000+", label: "Challenges Completed" },
                     { val: "50+ hours", label: "of code written on the platform" },
                     { val: "98%", label: "User Satisfaction" }
                   ].map((stat, i) => (
                     <div key={i} className="flex-1 min-w-[100px] p-2">
-                      <div className="text-2xl md:text-3xl font-extrabold text-slate-900">{stat.val}</div>
-                      <div className="text-[10px] md:text-xs text-slate-500 mt-1 uppercase tracking-wide font-semibold">{stat.label}</div>
+                      <div className="text-2xl md:text-3xl font-extrabold text-slate-900 dark:text-white">{stat.val}</div>
+                      <div className="text-[10px] md:text-xs text-slate-500 dark:text-slate-400 mt-1 uppercase tracking-wide font-semibold">{stat.label}</div>
                     </div>
                   ))}
                 </div>
 
                 {/* Languages */}
                 <div className="text-center">
-                  <h3 className="text-xl font-bold mb-8 text-slate-900">Supported Languages</h3>
+                  <h3 className="text-xl font-bold mb-8 text-slate-900 dark:text-white">Supported Languages</h3>
                   <div className="flex justify-center gap-6 md:gap-8 flex-wrap grayscale hover:grayscale-0 transition-all duration-500">
                     {[
                       { icon: "🐍", name: "Python", color: "text-yellow-600" },
@@ -421,7 +421,7 @@ print(sum(3, 5))`);
                     ].map((lang, i) => (
                       <div key={i} className="flex flex-col items-center gap-2 group cursor-default">
                         <span className="text-3xl md:text-4xl transform group-hover:scale-110 transition-transform">{lang.icon}</span>
-                        <span className="text-xs font-bold text-slate-400 group-hover:text-slate-800">{lang.name}</span>
+                        <span className="text-xs font-bold text-slate-400 dark:text-slate-500 group-hover:text-slate-800 dark:group-hover:text-slate-200">{lang.name}</span>
                       </div>
                     ))}
                   </div>
@@ -429,26 +429,7 @@ print(sum(3, 5))`);
               </div>
             </div>
 
-            {/* Bottom Footer Links */}
-            <div className="mt-20 pt-8 border-t border-slate-200 flex flex-col md:flex-row justify-between items-center gap-6 text-sm">
-              <div className="text-slate-500">
-                <div className="font-bold text-slate-900 mb-1">Contact:</div>
-                support@codecraftacademy.com <br />
-                +1-555-123-4567
-              </div>
 
-              <div className="flex gap-6 text-slate-500">
-                <Link href="#" className="hover:text-slate-900 transition-colors">Privacy Policy</Link>
-                <Link href="#" className="hover:text-slate-900 transition-colors">Terms of Service</Link>
-              </div>
-
-              <div className="flex gap-4">
-                {/* Social Icons (SVGs) */}
-                {['twitter', 'linkedin', 'github'].map(icon => (
-                  <div key={icon} className="w-5 h-5 bg-slate-300 hover:bg-slate-800 transition-colors rounded cursor-pointer"></div>
-                ))}
-              </div>
-            </div>
           </div>
         </section>
       </main>

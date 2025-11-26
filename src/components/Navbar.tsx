@@ -16,7 +16,7 @@ export default function Navbar({ className = "", variant = "transparent" }: { cl
             <div className="max-w-7xl mx-auto flex items-center justify-between">
                 {/* Logo */}
                 <Link href="/" className="flex items-center gap-3 group">
-                    <img src="/CodeAcademy.png" alt="CodeCraft Academy Logo" className="w-10 h-10 rounded-lg shadow-lg object-cover group-hover:scale-105 transition-transform" />
+                    <img src="/CodeAcademy.png" alt="CodeCraft Academy Logo" className="w-10 h-10 rounded-lg shadow-lg object-cover group-hover:scale-105 transition-transform bg-white" />
                     <span className={`font-bold text-lg leading-tight tracking-tight ${isTransparent ? 'text-white' : 'text-slate-900 dark:text-white'}`}>
                         CodeCraft Academy
                     </span>
@@ -25,18 +25,11 @@ export default function Navbar({ className = "", variant = "transparent" }: { cl
                 {/* Desktop Navigation */}
                 <div className="hidden md:flex items-center gap-8">
                     <Link
-                        href="/dashboard"
+                        href="/courses"
                         className={`text-sm font-medium transition-colors ${isTransparent ? "text-slate-300 hover:text-white" : "text-slate-600 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-400"
                             }`}
                     >
-                        {t.navbar.dashboard}
-                    </Link>
-                    <Link
-                        href="/learn"
-                        className={`text-sm font-medium transition-colors ${isTransparent ? "text-slate-300 hover:text-white" : "text-slate-600 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-400"
-                            }`}
-                    >
-                        {t.navbar.learn}
+                        {t.navbar.courses}
                     </Link>
                     <Link
                         href="/challenges"
